@@ -1,0 +1,13 @@
+#!/bin/sh
+osascript <<END
+tell application "iTerm"
+        activate
+        tell the current terminal
+            launch session "Default Session"
+            tell the last session
+                    write text "pushd \"`pwd`\""
+                    set name to "`basename $(pwd)`"
+            end tell
+        end tell
+end tell
+END
